@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,49 +8,63 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   background: #f5fff7;
   color: #1d2a22;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
 img {
   width: 100%;
+  max-width: 100%;
   display: block;
 }
 
+/* Header */
+
 .header {
   width: 100%;
+  max-width: 100%;
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   z-index: 1000;
-  background: rgba(245, 255, 247, 0.92);
+  background: rgba(245, 255, 247, 0.96);
   backdrop-filter: blur(16px);
   box-shadow: 0 10px 35px rgba(27, 94, 32, 0.08);
 }
 
 .navbar {
+  width: 100%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   padding: 15px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .logo-icon {
   width: 48px;
   height: 48px;
+  min-width: 48px;
   background: linear-gradient(135deg, #1b8f4d, #74c69d);
   color: #ffffff;
   border-radius: 16px;
@@ -63,17 +79,19 @@ img {
   line-height: 1.1;
   color: #14532d;
   font-weight: 900;
+  white-space: nowrap;
 }
 
 .logo p {
   font-size: 12px;
   color: #5e7a68;
+  white-space: nowrap;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 22px;
   list-style: none;
 }
 
@@ -84,6 +102,7 @@ img {
   font-weight: 700;
   transition: 0.3s ease;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-links a::after {
@@ -112,10 +131,15 @@ img {
   background: linear-gradient(135deg, #1b8f4d, #74c69d);
   color: white;
   font-size: 24px;
-  padding: 6px 13px;
+  padding: 7px 13px;
   border-radius: 12px;
   cursor: pointer;
+  min-width: 52px;
+  min-height: 52px;
+  flex-shrink: 0;
 }
+
+/* Hero */
 
 .hero {
   min-height: 100vh;
@@ -124,8 +148,9 @@ img {
   grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
   gap: 46px;
+  width: 100%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -309,12 +334,22 @@ img {
 }
 
 @keyframes spinBadge {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
+/* Common Section */
+
 section {
+  width: 100%;
+  max-width: 100%;
   padding: 88px 24px;
+  overflow: hidden;
 }
 
 .section-title {
@@ -343,13 +378,16 @@ section {
   line-height: 1.7;
 }
 
+/* Offers */
+
 .offers-section {
   background: linear-gradient(180deg, #f5fff7, #ecfff2);
 }
 
 .offer-poster {
+  width: 100%;
   max-width: 1120px;
-  margin: auto;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 0.9fr;
   gap: 26px;
@@ -462,6 +500,7 @@ section {
 .mini-dashboard div {
   display: flex;
   justify-content: space-between;
+  gap: 15px;
   padding: 12px 0;
   color: white;
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
@@ -475,13 +514,16 @@ section {
   color: #effff4;
 }
 
+/* Doctor */
+
 .doctor-section {
   background: #f5fff7;
 }
 
 .doctor-card {
+  width: 100%;
   max-width: 1080px;
-  margin: auto;
+  margin: 0 auto;
   background: white;
   border-radius: 34px;
   padding: 28px;
@@ -562,17 +604,27 @@ section {
   transform: scale(1.07);
 }
 
+/* Medicine and FMCG */
+
 .medicine-section {
   background: linear-gradient(180deg, #f5fff7, #eefff2);
 }
 
+.fmcg-section {
+  background: #f5fff7;
+}
+
 .medicine-grid,
 .fmcg-grid {
+  width: 100%;
   max-width: 1150px;
-  margin: auto;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 22px;
+}
+
+.medicine-grid {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .fmcg-grid {
@@ -591,7 +643,7 @@ section {
 
 .medicine-card:hover,
 .fmcg-card:hover {
-  transform: translateY(-12px) rotate(1deg);
+  transform: translateY(-12px);
   box-shadow: 0 35px 90px rgba(20, 83, 45, 0.18);
 }
 
@@ -627,17 +679,16 @@ section {
   font-size: 14px;
 }
 
-.fmcg-section {
-  background: #f5fff7;
-}
+/* Shop */
 
 .shop-section {
   background: linear-gradient(180deg, #f5fff7, #ebfff0);
 }
 
 .shop-grid {
+  width: 100%;
   max-width: 1150px;
-  margin: auto;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
@@ -657,7 +708,7 @@ section {
 }
 
 .shop-card:hover img {
-  transform: scale(1.12) rotate(1deg);
+  transform: scale(1.12);
 }
 
 .shop-overlay {
@@ -680,13 +731,16 @@ section {
   transform: translateY(0);
 }
 
+/* Location */
+
 .location-section {
   background: linear-gradient(180deg, #f5fff7, #ebfff0);
 }
 
 .location-card {
+  width: 100%;
   max-width: 1080px;
-  margin: auto;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 0.95fr;
   gap: 26px;
@@ -752,11 +806,15 @@ section {
   box-shadow: 0 16px 35px rgba(20, 83, 45, 0.18);
 }
 
+/* Footer */
+
 .footer {
   background: #14532d;
   color: white;
   text-align: center;
   padding: 42px 20px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .footer h3 {
@@ -775,9 +833,11 @@ section {
   opacity: 0.82;
 }
 
+/* Animation */
+
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(75px) rotate(-7deg) scale(0.93);
+  transform: translateY(75px) rotate(-4deg) scale(0.96);
   transition: 0.9s ease;
 }
 
@@ -785,6 +845,8 @@ section {
   opacity: 1;
   transform: translateY(0) rotate(0deg) scale(1);
 }
+
+/* Tablet */
 
 @media (max-width: 1020px) {
   .hero,
@@ -818,23 +880,59 @@ section {
   }
 }
 
+/* Mobile Fix */
+
 @media (max-width: 780px) {
+  body {
+    text-align: center;
+  }
+
+  .header {
+    overflow: visible;
+  }
+
+  .navbar {
+    padding: 14px 18px;
+  }
+
+  .logo {
+    max-width: calc(100% - 70px);
+  }
+
+  .logo h2 {
+    font-size: 18px;
+  }
+
+  .logo p {
+    font-size: 11px;
+  }
+
+  .logo-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    font-size: 22px;
+  }
+
   .menu-btn {
-    display: block;
+    display: grid;
+    place-items: center;
   }
 
   .nav-links {
-    position: absolute;
-    top: 76px;
-    right: 20px;
-    width: 250px;
+    position: fixed;
+    top: 82px;
+    right: 18px;
+    width: min(260px, calc(100vw - 36px));
+    max-width: calc(100vw - 36px);
     background: white;
     padding: 22px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 18px;
     border-radius: 22px;
     box-shadow: 0 25px 70px rgba(20, 83, 45, 0.18);
-    transform: scale(0.95);
+    transform: translateY(-10px) scale(0.96);
     opacity: 0;
     pointer-events: none;
     transition: 0.3s ease;
@@ -843,36 +941,172 @@ section {
   .nav-links.show {
     opacity: 1;
     pointer-events: auto;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
+  }
+
+  .nav-links a {
+    font-size: 15px;
   }
 
   .hero {
-    padding-top: 125px;
+    width: 100%;
+    padding: 125px 18px 65px;
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 10vw, 46px);
+    line-height: 1.12;
+  }
+
+  .hero p {
+    max-width: 100%;
+    font-size: 16px;
+    margin: 0 auto;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .poster-btn,
+  .map-btn {
+    width: 100%;
+    text-align: center;
   }
 
   .hero-stats {
     grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-stats div {
+    width: 100%;
+  }
+
+  .hero-photo-card,
+  .hero-photo-card img {
+    width: 100%;
+    min-height: 360px;
+    height: 360px;
+  }
+
+  section {
+    padding: 68px 18px;
+  }
+
+  .section-title {
+    margin-bottom: 34px;
+  }
+
+  .section-title h2 {
+    font-size: clamp(29px, 8vw, 38px);
+  }
+
+  .offer-poster {
+    width: 100%;
+    padding: 20px;
+    border-radius: 28px;
+    text-align: center;
+  }
+
+  .offer-left {
+    padding: 6px;
+  }
+
+  .offer-left h2 {
+    font-size: clamp(36px, 10vw, 50px);
+  }
+
+  .offer-item {
+    text-align: center;
+  }
+
+  .offer-badge {
+    width: 190px;
+    height: 190px;
+  }
+
+  .offer-badge h3 {
+    font-size: 58px;
+  }
+
+  .mini-dashboard {
+    max-width: 100%;
+  }
+
+  .mini-dashboard div {
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
   }
 
   .doctor-card {
     grid-template-columns: 1fr;
     text-align: center;
+    padding: 22px;
   }
 
   .doctor-photo {
-    height: 270px;
+    height: 260px;
+  }
+
+  .days-box {
+    grid-template-columns: 1fr;
   }
 
   .medicine-grid,
   .fmcg-grid,
   .shop-grid {
     grid-template-columns: 1fr;
+    width: 100%;
   }
 
-  section {
-    padding: 68px 18px;
+  .medicine-card,
+  .fmcg-card,
+  .shop-card {
+    width: 100%;
+  }
+
+  .location-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .location-details {
+    padding: 28px 22px;
+  }
+
+  .map-tag {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    text-align: center;
+  }
+
+  .scroll-reveal {
+    transform: translateY(45px) scale(0.98);
+  }
+
+  .scroll-reveal.active {
+    transform: translateY(0) scale(1);
   }
 }
+
+/* Small Mobile */
 
 @media (max-width: 470px) {
   .navbar {
@@ -887,27 +1121,31 @@ section {
     font-size: 10px;
   }
 
-  .hero-buttons {
-    flex-direction: column;
+  .hero {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
-  .primary-btn,
-  .secondary-btn,
-  .poster-btn,
-  .map-btn {
-    width: 100%;
-    text-align: center;
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .tag {
+    font-size: 14px;
+    padding: 9px 14px;
   }
 
   .hero-photo-card,
   .hero-photo-card img {
-    min-height: 360px;
-    height: 360px;
+    min-height: 340px;
+    height: 340px;
   }
 
   .floating-discount {
     width: 118px;
     height: 118px;
+    right: 16px;
+    bottom: 16px;
   }
 
   .floating-discount h3 {
@@ -918,11 +1156,22 @@ section {
     font-size: 15px;
   }
 
-  .days-box {
-    grid-template-columns: 1fr;
-  }
-
   .offer-poster {
     padding: 18px;
+  }
+
+  .offer-badge {
+    width: 170px;
+    height: 170px;
+  }
+
+  .offer-badge h3 {
+    font-size: 50px;
+  }
+
+  .medicine-card img,
+  .fmcg-card img,
+  .shop-card img {
+    height: 230px;
   }
 }
